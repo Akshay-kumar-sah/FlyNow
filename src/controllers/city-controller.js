@@ -13,7 +13,7 @@ return res.status(201).json({
     message : 'Successfully created a city',
     err : {}
 
-})
+});
 
 } catch (error) {
 
@@ -23,7 +23,7 @@ return res.status(201).json({
         success : false,
         message : 'Not able to create a city',
         err : error
-    })
+    });
 }
 
 
@@ -39,10 +39,10 @@ const destroy = async (req, res) => {
         return res.status(200).json({
             data : response,
             success : true,
-            message : 'Successfully created a city',
+            message : 'Successfully deleted a city',
             err : {}
         
-        })
+        });
         
         } catch (error) {
         
@@ -52,7 +52,7 @@ const destroy = async (req, res) => {
                 success : false,
                 message : 'Not able to delete the city',
                 err : error
-            })
+            });
         }
         
 
@@ -67,10 +67,10 @@ const update = async (req, res) => {
         return res.status(200).json({
             data : response,
             success : true,
-            message : 'Successfully created a city',
+            message : 'Successfully update a city',
             err : {}
         
-        })
+        });
         
         } catch (error) {
         
@@ -80,7 +80,7 @@ const update = async (req, res) => {
                 success : false,
                 message : 'Not able to update the city',
                 err : error
-            })
+            });
         }
 
 }
@@ -94,10 +94,10 @@ const get = async (req, res) => {
         return res.status(200).json({
             data : response,
             success : true,
-            message : 'Successfully created a city',
+            message : 'Successfully getting a city',
             err : {}
         
-        })
+        });
         
         } catch (error) {
         
@@ -107,7 +107,7 @@ const get = async (req, res) => {
                 success : false,
                 message : 'Not able to get the city',
                 err : error
-            })
+            });
         }
 
 }

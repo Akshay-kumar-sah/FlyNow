@@ -14,14 +14,15 @@ async createCity({name}){
     }
 }
 
-async deleteCity({cityId}){
+async deleteCity(cityId){
 
     try {
-        await City.destory({
+        await City.destroy({
             where : {
                id : cityId
             }
         });
+        //);
          return true;
     }catch (error) {
         console.log("Something went wrong in the repository layer");
@@ -47,11 +48,7 @@ async updateCity (cityId, data) {
 async getCity (cityId) {
 
     try {
-     const city =   await City.findByPk({
-            where : {
-               id : cityId
-            }
-        });
+     const city =   await City.findByPk(cityId);
          
         return city;
     }catch (error) {
