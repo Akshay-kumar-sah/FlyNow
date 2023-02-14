@@ -12,6 +12,7 @@ router.patch('/city/:id', CityController.update);
 router.get('/city', CityController.getAll);
 
 router.post('/fligths', FligthController.create);
+router.get('/fligths',FligthController.getAll);
 
 
 module.exports = router;

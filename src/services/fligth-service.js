@@ -13,7 +13,7 @@ class FligthService{
     
 
      try {
-         if(!compareTime(data.arrivalTie,data.departureTime)){
+         if(!compareTime(data.arrivalTime,data.departureTime)){
            throw {error:'Arrival time can not be less than departure time'};
          }
         
@@ -34,7 +34,17 @@ class FligthService{
 
 }
 
-async getFligthData(){
+async getAllFligthData(data){
+
+  try {
+    const fligths = await this.fligthRepository.getAllFligths(data);
+    return fligths;
+    
+  } catch (error) {
+    console.log("Something went wrong in the service layer");
+    throw {error};
+    
+  }
 
 }
 

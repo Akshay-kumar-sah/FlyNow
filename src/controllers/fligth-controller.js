@@ -24,10 +24,36 @@ try {
         err : error
     });
 }
+}
 
+const getAll = async (req,res) =>{
+
+   try {
+    const response = await fligthService.getAllFligthData(req.query);
+    return res.status(200).json({
+        data : response,
+     success : true,
+     err : {},
+     message: 'Successfully fetch all  fligths'
+
+    });
+    
+   } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+        data : {},
+        success : false,
+        message : 'Not able to fetch  the fligths',
+        err : error
+    });
+   }
 
 }
 
+
+
+
 module.exports = {
-    create
+    create,
+    getAll
 }
