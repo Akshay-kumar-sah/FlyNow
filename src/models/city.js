@@ -1,7 +1,5 @@
 'use strict';
-const {
-  Model
-} = require('sequelize');
+const {Model} = require('sequelize');
 const airport = require('./airport');
 module.exports = (sequelize, DataTypes) => {
   class City extends Model {
@@ -12,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      this.hasMany(Models.Airport,{
+      this.hasMany(models.Airport,{
         foreignKey:'CityId'
       });
     }
