@@ -2,6 +2,7 @@ const express = require('express');
 
 const CityController = require('../../controllers/city-controller');
 const FligthController = require('../../controllers/fligth-controller');
+const AirportController = require('../../controllers/airport-controller');
 
 const router = express.Router();
 
@@ -14,5 +15,6 @@ router.get('/city', CityController.getAll);
 router.post('/fligths', FligthController.create);
 router.get('/fligths',FligthController.getAll);
 
+router.post('/airports',AirportController.create);
 
 module.exports = router;
