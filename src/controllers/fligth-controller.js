@@ -1,4 +1,5 @@
 const {FligthService} = require('../services/index');
+const {SuccessCodes} = require('../utils/error-codes');
 
 
 const fligthService = new FligthService();
@@ -20,7 +21,7 @@ try {
 
 
     const fligth = await fligthService.createFligth(fligthRequestData);
-    return res.status(201).json({
+    return res.status(SuccessCodes.CREATED).json({
      data : fligth,
      success : true,
      err : {},
@@ -44,7 +45,7 @@ const getAll = async (req,res) =>{
 
    try {
     const response = await fligthService.getAllFligthData(req.query);
-    return res.status(200).json({
+    return res.status(SuccessCodes.OK).json({
         data : response,
      success : true,
      err : {},

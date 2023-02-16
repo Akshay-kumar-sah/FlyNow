@@ -1,3 +1,5 @@
+const {ClientErrorsCodes} = require('../utils/error-codes');
+
 const validateCreateFligth  = (req, res, next) => {
 
 if(
@@ -13,8 +15,9 @@ if(
     ) {
 
         //if any of the body param is missing we come inside if
+        // BadRequest means status code is 400
 
-        return res.status(400).json({ 
+        return res.status(ClientErrorsCodes.BAD_REQUEST).json({ 
        data : {},
        success : false,
        message : 'Invalid request body for create fligth ',
