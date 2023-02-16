@@ -5,7 +5,21 @@ const fligthService = new FligthService();
 
 const create = async (req,res) => {
 try {
-    const fligth = await fligthService.createFligth(req.body);
+     const fligthRequestData = {
+     flightsNumber:req.body.flightsNumber,
+     airplaneId:req.body.airplaneId,
+     departureAirportId : req.body.departureAirportId ,
+     arrivalAirportId :req.body.arrivalAirportId ,
+     arrivalTime :req.body.arrivalTime ,
+     departureTime:req.body.departureTime,
+     price:req.body.price,
+     boardingGate :req.body.boardingGate 
+
+
+     }
+
+
+    const fligth = await fligthService.createFligth(fligthRequestData);
     return res.status(201).json({
      data : fligth,
      success : true,

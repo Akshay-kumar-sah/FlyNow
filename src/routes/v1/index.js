@@ -1,4 +1,5 @@
 const express = require('express');
+const {FligthMiddleware} = require('../../middlewares/index');
 
 const CityController = require('../../controllers/city-controller');
 const FligthController = require('../../controllers/fligth-controller');
@@ -12,7 +13,7 @@ router.get('/city/:id', CityController.get);
 router.patch('/city/:id', CityController.update);
 router.get('/city', CityController.getAll);
 
-router.post('/fligths', FligthController.create);
+router.post('/fligths',FligthMiddleware.validateCreateFligth, FligthController.create);
 router.get('/fligths',FligthController.getAll);
 
 router.post('/airports',AirportController.create);
