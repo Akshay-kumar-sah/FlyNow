@@ -55,7 +55,7 @@ async createFligth (data){
 }
 
 
-async getFligth(fligthId) {
+async getFlight(fligthId) {
     try {
         const fligth = await Fligth.findByPk(fligthId);
         return fligth;
@@ -82,6 +82,25 @@ async getAllFligths(filter) {
     }
 
 }
+
+async updateFlight (flightId, data) {
+    try {
+        await Fligth.update(data, {
+            where : {
+                id : flightId
+            }
+        });
+        return true;
+        
+    } catch (error) {
+        console.log("Something went wrong in reposityory layer");
+        throw(error);
+  
+        
+    }
+}
+
+
 
 }
 

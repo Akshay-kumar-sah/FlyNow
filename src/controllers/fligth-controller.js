@@ -66,9 +66,55 @@ const getAll = async (req,res) =>{
 }
 
 
+const get = async (req, res) => {
+    try {
+        const response = await fligthService.getFlight(req.params.id);
+        return res.status(SuccessCodes.OK).json({
+            data : response,
+         success : true,
+         err : {},
+         message: 'Successfully fetched the fligths'
+    
+        });
+        
+       } catch (error) {
+        console.log(error);
+        return res.status(500).json({
+            data : {},
+            success : false,
+            message : 'Not able to fetched  the fligth',
+            err : error
+        });
+       }
+}
+
+
+const update = async (req, res) => {
+    try {
+        const response = await fligthService.updateFlight(req.params.id, req.body);
+        return res.status(SuccessCodes.OK).json({
+            data : response,
+         success : true,
+         err : {},
+         message: 'Successfully updated the fligths'
+    
+        });
+        
+       } catch (error) {
+        console.log(error);
+        return res.status(500).json({
+            data : {},
+            success : false,
+            message : 'Not able to update  the fligth',
+            err : error
+        });
+       }
+}
 
 
 module.exports = {
     create,
-    getAll
+    getAll,
+    get,
+    update
 }

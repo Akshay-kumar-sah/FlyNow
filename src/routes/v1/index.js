@@ -13,8 +13,10 @@ router.get('/city/:id', CityController.get);
 router.patch('/city/:id', CityController.update);
 router.get('/city', CityController.getAll);
 
-router.post('/fligths',FligthMiddleware.validateCreateFligth, FligthController.create);
-router.get('/fligths',FligthController.getAll);
+router.post('/flights',FligthMiddleware.validateCreateFligth, FligthController.create);
+router.get('/flights/:id',FligthController.get );
+router.get('/flights',FligthController.getAll);
+router.patch('/flights/:id',FligthController.update);
 
 router.post('/airports',AirportController.create);
 

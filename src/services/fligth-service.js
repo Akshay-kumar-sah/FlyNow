@@ -48,6 +48,31 @@ async getAllFligthData(data){
 
 }
 
+async getFlight(flightId){
+  try {
+      
+      const flight = await this.fligthRepository.getFlight(flightId); 
+      return flight;
+  } catch (error) {
+      console.log("Something went wrong in the service layer");
+      throw(error);
+
+  }
+}
+
+async updateFlight(flightId, data) {
+  try {
+      
+    const response = await this.fligthRepository.updateFlight(flightId, data); 
+    return response;
+} catch (error) {
+    console.log("Something went wrong in the service layer");
+    throw(error);
+
+}
+}
+
+
 
 
 /**
